@@ -1,7 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
-import { getSeatsParsed } from "../../viz/seats_held_by_woman";
+//d3
+import rd3 from "react-d3-library";
+import node from "./seats_d3.js";
+const RD3Component = rd3.Component;
 
 const useStyles = makeStyles({
   root: {
@@ -16,7 +19,11 @@ const useStyles = makeStyles({
 });
 
 export const SeatsHeld = () => {
-  const { root } = useStyles();
-  console.log("seats held parsed", getSeatsParsed());
-  return <Button className={root}>Hello World</Button>;
+  //   const { root } = useStyles();
+  //   return <Button className={root}>Hello World</Button>;
+  return (
+    <div>
+      <RD3Component data={node} />
+    </div>
+  );
 };

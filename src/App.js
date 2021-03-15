@@ -1,11 +1,9 @@
-import "./App.css";
+import { SeatsHeld } from "./pages/seats_held/SeatsHeld";
 
-const App = () => {
-  return (
-    <div className="App">
-      <p>THIS IS MY APP</p>
-    </div>
-  );
-};
+const App = () => (
+  <div>
+    <SeatsHeld />
+  </div>
+);
 
 export default App;

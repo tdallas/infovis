@@ -22,16 +22,12 @@ const App = () => {
 
   return (
     <div className={app}>
-      <Router>
-        <Switch>
-          <Route exact path="/infovis">
-            <Home />
-          </Route>
-          <Route path="/vizs/:vizId">
-            <Viz />
-          </Route>
-        </Switch>
-      </Router>
+      <Route exact path="/infovis">
+        <Home />
+      </Route>
+      <Route path="/infovis/vizs/:vizId">
+        <Viz />
+      </Route>
     </div>
   );
 };

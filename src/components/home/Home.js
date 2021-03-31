@@ -18,7 +18,7 @@ const Home = ({ history }) => {
   const { button } = useStyles();
 
   const openViz = (viz) => () => {
-    history.push(`/vizs/${viz}`);
+    history.push(`/infovis/vizs/${viz}`);
   };
 
   return currentVizs.map((viz) => (

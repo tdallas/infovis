@@ -22,10 +22,10 @@ const App = () => {
 
   return (
     <div className={app}>
-      <Route exact path="/infovis">
+      <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/infovis/vizs/:vizId">
+      <Route path="/vizs/:vizId">
         <Viz />
       </Route>
     </div>

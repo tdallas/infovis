@@ -1,7 +1,7 @@
 import TableauReport from "tableau-react";
 import { withRouter } from "react-router";
 
-const extractVizFromPathname = (pathname) => pathname.split("/")[3];
+const extractVizFromPathname = (pathname) => pathname.split("/")[2];
 
 const options = { height: 1000, width: 1100 };
 

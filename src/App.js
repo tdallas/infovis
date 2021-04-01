@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const currentVizs = ["week9", "week11"];
+
 const App = () => {
   const { app } = useStyles();
 
@@ -25,9 +27,11 @@ const App = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/vizs/:vizId">
-        <Viz />
-      </Route>
+      {currentVizs.map((viz) => (
+        <Route exact path={`/vizs/${viz}`}>
+          <Viz currentViz={viz} />
+        </Route>
+      ))}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import { withRouter } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 
@@ -14,12 +13,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Home = ({ history }) => {
+const Home = ({ setCurrentViz }) => {
   const { button } = useStyles();
 
-  const openViz = (viz) => () => {
-    history.push(`/vizs/${viz}`);
-  };
+  const openViz = (viz) => () => setCurrentViz(viz);
 
   return currentVizs.map((viz) => (
     <Button
@@ -33,4 +30,4 @@ const Home = ({ history }) => {
   ));
 };
 
-export default withRouter(Home);
+export default Home;

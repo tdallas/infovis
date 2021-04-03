@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -17,21 +17,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const extractVizFromPathname = (pathname) => {
+  if (!pathname.includes("?viz=")) {
+    return undefined;
+  }
+  const paths = pathname.split("=");
+  return paths.length == 2 ? paths[paths.length - 1] : undefined;
+};
+
 const currentVizs = ["week9", "week11"];
 
 const App = () => {
   const { app } = useStyles();
-
+  const [currentViz, setCurrentViz] = useState(
+    extractVizFromPathname(window.location.search)
+  );
+  console.log("currentViz", currentViz);
   return (
     <div className={app}>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      {currentVizs.map((viz) => (
-        <Route exact path={`/vizs/${viz}`}>
-          <Viz currentViz={viz} />
-        </Route>
-      ))}
+      {currentViz === undefined ? (
+        <Home setCurrentViz={setCurrentViz} />
+      ) : (
+        <Viz currentViz={currentViz} />
+      )}
+      {/* {currentVizs.map((viz) => (
+        <Viz currentViz={viz} />
+      ))} */}
     </div>
   );
 };

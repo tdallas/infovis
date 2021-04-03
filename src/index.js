@@ -7,11 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename="/infovis">
-      <Switch>
-        <App />
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

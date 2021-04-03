@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import Palabras from "./components/palabras/Palabras";
 import Viz from "./components/viz/Viz";
 import Home from "./components/home/Home";
 
@@ -27,22 +27,22 @@ const extractVizFromPathname = (pathname) => {
 
 const currentVizs = ["week9", "week11"];
 
+const HomeOrViz = ({ currentViz, setCurrentViz }) =>
+  currentViz === undefined ? (
+    <Home setCurrentViz={setCurrentViz} />
+  ) : (
+    <Viz currentViz={currentViz} />
+  );
+
 const App = () => {
   const { app } = useStyles();
+  const isPalabras = window.location.href.includes("palabras");
   const [currentViz, setCurrentViz] = useState(
-    extractVizFromPathname(window.location.search)
+    isPalabras ? undefined : extractVizFromPathname(window.location.search)
   );
-  console.log("currentViz", currentViz);
   return (
     <div className={app}>
-      {currentViz === undefined ? (
-        <Home setCurrentViz={setCurrentViz} />
-      ) : (
-        <Viz currentViz={currentViz} />
-      )}
-      {/* {currentVizs.map((viz) => (
-        <Viz currentViz={viz} />
-      ))} */}
+      {!isPalabras ? HomeOrViz({ currentViz, setCurrentViz }) : <Palabras />}
     </div>
   );
 };

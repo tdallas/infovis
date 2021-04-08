@@ -25,8 +25,6 @@ const extractVizFromPathname = (pathname) => {
   return paths.length == 2 ? paths[paths.length - 1] : undefined;
 };
 
-const currentVizs = ["week9", "week11"];
-
 const HomeOrViz = ({ currentViz, setCurrentViz }) =>
   currentViz === undefined ? (
     <Home setCurrentViz={setCurrentViz} />

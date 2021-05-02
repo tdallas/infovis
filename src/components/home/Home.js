@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 
-const currentVizs = ["week9", "week11", "argPopulation"];
+const currentVizs = ["week9", "week11", "argPopulation", "personal"];
 
 const useStyles = makeStyles(() => ({
   button: {
